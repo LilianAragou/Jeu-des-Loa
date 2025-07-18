@@ -10,9 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6300450638903324552}
   - component: {fileID: 8559901336528901290}
-  - component: {fileID: 7414274292755886868}
   - component: {fileID: 7992217761740980678}
-  - component: {fileID: 8097077811417504402}
+  - component: {fileID: 6637608188832892769}
   m_Layer: 0
   m_Name: Spirit_Blue
   m_TagString: Untagged
@@ -90,18 +89,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7414274292755886868
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3524856371256354914}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2492e6c84fdde96459895eb26d3375c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &7992217761740980678
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -148,7 +135,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 8.32, y: 8.28}
   m_EdgeRadius: 0
---- !u!114 &8097077811417504402
+--- !u!114 &6637608188832892769
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -157,7 +144,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3524856371256354914}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73894dec8ed5dcc41b74c4d80b47fcdb, type: 3}
+  m_Script: {fileID: 11500000, guid: d02fde21353b3e240afdbbe26de0bf19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   currentGridPos: {x: 0, y: 0}

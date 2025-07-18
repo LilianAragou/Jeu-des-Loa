@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7878535844891877362}
   - component: {fileID: 7940558681065076547}
-  - component: {fileID: 8320953153601285788}
   - component: {fileID: 7717663819030407509}
+  - component: {fileID: 5370862033586036247}
   m_Layer: 0
   m_Name: Red_Mask
   m_TagString: Untagged
@@ -89,18 +89,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8320953153601285788
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1910810297372126815}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2492e6c84fdde96459895eb26d3375c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &7717663819030407509
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -147,3 +135,16 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 8.83, y: 10.19}
   m_EdgeRadius: 0
+--- !u!114 &5370862033586036247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1910810297372126815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ad77a1da4f68b94eb82f72599b37336, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentGridPos: {x: 0, y: 0}

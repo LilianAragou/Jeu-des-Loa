@@ -1,5 +1,7 @@
 using UnityEngine;
 using TMPro;
+using System.Collections.Generic;
+
 
 public class BoardManager : MonoBehaviour
 {
@@ -97,5 +99,34 @@ public class BoardManager : MonoBehaviour
     }
     
 
-    
+    public void ShowPossibleMoves(Piece piece)
+{
+    ClearHighlights();
+
+    List<Vector2Int> validMoves = piece.GetAvailableMoves(this);
+
+    foreach (var move in validMoves)
+    {
+        Tile targetTile = GetTileAt(move);
+        if (targetTile != null)
+        {
+            targetTile.Highlight(Color.yellow); // couleur de surbrillance
+        }
+    }
+}
+
+
+
+public void ClearHighlights()
+{
+    for (int x = 0; x < width; x++)
+    {
+        for (int y = 0; y < height; y++)
+        {
+            tiles[x, y].ResetHighlight();
+        }
+    }
+}
+
+
 }

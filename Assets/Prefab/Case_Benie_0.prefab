@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4538076792848218375}
   - component: {fileID: 7666989020444729905}
-  - component: {fileID: 7610153649483226905}
   - component: {fileID: 6755464530015643281}
   m_Layer: 0
   m_Name: Case_Benie_0
@@ -89,18 +88,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7610153649483226905
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6928053770708039646}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2492e6c84fdde96459895eb26d3375c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &6755464530015643281
 BoxCollider2D:
   m_ObjectHideFlags: 0

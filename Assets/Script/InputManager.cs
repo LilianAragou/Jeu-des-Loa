@@ -24,17 +24,23 @@ public class InputManager : MonoBehaviour
                 if (piece != null)
                 {
                     selectedPiece = piece;
+                    board.ShowPossibleMoves(piece); // ✅ ICI on affiche les déplacements
                     Debug.Log("Pion sélectionné : " + piece.name);
                 }
                 else if (selectedPiece != null)
                 {
-                    // Clique sur une case
+                    // Clique sur une case vide
                     Tile tile = hit.collider.GetComponent<Tile>();
                     if (tile != null && !tile.isOccupied)
-                    {
-                        selectedPiece.MoveTo(tile.gridPos);
-                        selectedPiece = null;
-                    }
+{
+                        var possibleMoves = selectedPiece.GetAvailableMoves(board);
+                        if (possibleMoves.Contains(tile.gridPos))
+                        {
+                            selectedPiece.MoveTo(tile.gridPos);
+                            board.ClearHighlights();
+                            selectedPiece = null;
+                        }
+}
                 }
             }
         }

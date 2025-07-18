@@ -11,8 +11,9 @@ public class Tile : MonoBehaviour
 
     void Awake()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        defaultColor = spriteRenderer.color;
+        defaultColor = new Color(1, 1, 1, 0f); // blanc totalement transparent par défaut
+        spriteRenderer.color = defaultColor;
+        
     }
 
     public void SetOccupant(GameObject occupant)
@@ -20,16 +21,31 @@ public class Tile : MonoBehaviour
         currentOccupant = occupant;
         isOccupied = occupant != null;
     }
+    
+
+    
 
     public void Highlight(Color color)
+{
+    if (spriteRenderer != null)
     {
-        if (spriteRenderer != null)
-            spriteRenderer.color = color;
+        color.a = 0.5f; // opacité partielle pour la surbrillance
+        spriteRenderer.color = color;
     }
+}
 
-    public void ResetColor()
+
+    public void ResetHighlight()
+{
+    if (spriteRenderer != null)
     {
-        if (spriteRenderer != null)
-            spriteRenderer.color = defaultColor;
+        var clear = defaultColor;
+        clear.a = 0f; // totalement invisible
+        spriteRenderer.color = clear;
     }
+}
+
+
+
+    
 }

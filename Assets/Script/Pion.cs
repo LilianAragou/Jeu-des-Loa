@@ -1,41 +1,34 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Piece : MonoBehaviour
 {
-    public Vector2Int currentGridPos; // Position logique sur la grille
-    private BoardManager board;
+    public Vector2Int currentGridPos;      // Position sur la grille
+    protected BoardManager board;          // Référence au plateau
 
-    public bool isMask = false;
-
-
-    void Start()
-
-
+    protected virtual void Start()
     {
         board = FindFirstObjectByType<BoardManager>();
-
-
-
-        // Place automatiquement le pion sur sa case logique dès le départ
-        MoveTo(currentGridPos);
     }
 
     public void MoveTo(Vector2Int newPos)
     {
+        Tile oldTile = board.GetTileAt(currentGridPos);
+        if (oldTile != null)
+            oldTile.SetOccupant(null);
+
         Tile newTile = board.GetTileAt(newPos);
         if (newTile != null && !newTile.isOccupied)
         {
-            // Libérer l’ancienne case
-            Tile oldTile = board.GetTileAt(currentGridPos);
-            if (oldTile != null)
-                oldTile.SetOccupant(null);
-
-            // Déplacer le pion
             transform.position = newTile.transform.position;
-            newTile.SetOccupant(gameObject);
             currentGridPos = newPos;
+            newTile.SetOccupant(gameObject);
         }
     }
-    
-    
+
+    // 👉 C’est cette méthode que chaque pion va personnaliser :
+    public virtual List<Vector2Int> GetAvailableMoves(BoardManager board)
+    {
+        return new List<Vector2Int>();
+    }
 }
