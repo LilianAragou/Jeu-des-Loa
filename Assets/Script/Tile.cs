@@ -2,15 +2,34 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour
 {
-    public Vector2Int gridPosition; // Position sur la grille
+    public Vector2Int gridPos;
     public bool isOccupied = false;
-    public bool isBlessed = false;
+    public GameObject currentOccupant;
 
-    public GameObject currentOccupant; // L’unité qui est sur cette case (null si vide)
+    private SpriteRenderer spriteRenderer;
+    private Color defaultColor;
 
-    public void SetOccupant(GameObject unit)
+    void Awake()
     {
-        currentOccupant = unit;
-        isOccupied = (unit != null);
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        defaultColor = spriteRenderer.color;
+    }
+
+    public void SetOccupant(GameObject occupant)
+    {
+        currentOccupant = occupant;
+        isOccupied = occupant != null;
+    }
+
+    public void Highlight(Color color)
+    {
+        if (spriteRenderer != null)
+            spriteRenderer.color = color;
+    }
+
+    public void ResetColor()
+    {
+        if (spriteRenderer != null)
+            spriteRenderer.color = defaultColor;
     }
 }

@@ -5,10 +5,19 @@ public class Piece : MonoBehaviour
     public Vector2Int currentGridPos; // Position logique sur la grille
     private BoardManager board;
 
+    public bool isMask = false;
+
+
     void Start()
+
+
     {
         board = FindFirstObjectByType<BoardManager>();
-        MoveTo(currentGridPos); // Place le pion à la bonne position dès le début
+
+
+
+        // Place automatiquement le pion sur sa case logique dès le départ
+        MoveTo(currentGridPos);
     }
 
     public void MoveTo(Vector2Int newPos)
@@ -27,4 +36,6 @@ public class Piece : MonoBehaviour
             currentGridPos = newPos;
         }
     }
+    
+    
 }
