@@ -73,35 +73,21 @@ public class BoardManager : MonoBehaviour
     }
 
     private void PlacePiece(GameObject prefab, int x, int y)
-{
-    if (tiles[x, y] == null) return;
-
-    Vector2 pos = tiles[x, y].transform.position;
-    GameObject piece = Instantiate(prefab, pos, Quaternion.identity, transform);
-
-    Piece pieceComp = piece.GetComponent<Piece>();
-    if (pieceComp != null)
     {
-        pieceComp.currentGridPos = new Vector2Int(x, y);
+        if (tiles[x, y] == null) return;
 
-        // Définition de la couleur pour SpiritPiece
-        if (pieceComp is SpiritPiece spirit)
+        // Instancie le pion sans encore le marquer comme occupant
+        Vector2 pos = tiles[x, y].transform.position;
+        GameObject piece = Instantiate(prefab, pos, Quaternion.identity, transform);
+
+        Piece pieceComp = piece.GetComponent<Piece>();
+        if (pieceComp != null)
         {
-            spirit.isRed = (y < height / 2); // rouge si en haut
+            pieceComp.currentGridPos = new Vector2Int(x, y);
+
         }
 
-        // Définition de la couleur pour MaskPiece
-        if (pieceComp is MaskPiece mask)
-        {
-            mask.isRed = (y < height / 2); // rouge si en haut
-        }
     }
-
-    tiles[x, y].SetOccupant(piece);
-}
-
-
-
 
 
     public Tile GetTileAt(Vector2Int gridPos)

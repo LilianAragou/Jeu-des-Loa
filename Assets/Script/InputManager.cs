@@ -1,8 +1,5 @@
 using UnityEngine;
 
-using System.Collections.Generic;
-
-
 public class InputManager : MonoBehaviour
 {
     private Piece selectedPiece;
@@ -15,56 +12,37 @@ public class InputManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0)) // Clic gauche
         {
-            Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector2Int gridPos = new Vector2Int(
-                Mathf.RoundToInt(mouseWorldPos.x + (board.width - 1) / 2f),
-                Mathf.RoundToInt(mouseWorldPos.y + (board.height - 1) / 2f)
-            );
+            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
 
-            Tile clickedTile = board.GetTileAt(gridPos);
-
-            if (clickedTile != null)
+            if (hit.collider != null)
             {
-                // Si un pion est sélectionné et qu'on clique sur une case valide, on essaie de bouger
-                if (selectedPiece != null)
-                {
-                    List<Vector2Int> validMoves = selectedPiece.GetAvailableMoves(board);
-                    if (validMoves.Contains(gridPos))
-                    {
-                        selectedPiece.MoveTo(gridPos);
-                        board.ClearHighlights();
-                        selectedPiece = null;
-                        return;
-                    }
-                }
-
-                // Sinon, essaie de sélectionner un pion
-                Piece piece = clickedTile.currentOccupant != null ? clickedTile.currentOccupant.GetComponent<Piece>() : null;
-
+                // Clique sur un pion
+                Piece piece = hit.collider.GetComponent<Piece>();
                 if (piece != null)
                 {
-                    // S'il y avait déjà un pion sélectionné, on désélectionne
-                    if (selectedPiece != null)
-                    {
-                        board.ClearHighlights();
-                    }
-
                     selectedPiece = piece;
-                    board.ShowPossibleMoves(piece);
+                    board.ShowPossibleMoves(piece); // ✅ ICI on affiche les déplacements
                     Debug.Log("Pion sélectionné : " + piece.name);
-                    return;
                 }
-            }
-
-            // Si on clique ailleurs (aucune case ou pas de pion), on annule la sélection
-            if (selectedPiece != null)
-            {
-                board.ClearHighlights();
-                selectedPiece = null;
+                else if (selectedPiece != null)
+                {
+                    // Clique sur une case vide
+                    Tile tile = hit.collider.GetComponent<Tile>();
+                    if (tile != null && !tile.isOccupied)
+{
+                        var possibleMoves = selectedPiece.GetAvailableMoves(board);
+                        if (possibleMoves.Contains(tile.gridPos))
+                        {
+                            selectedPiece.MoveTo(tile.gridPos);
+                            board.ClearHighlights();
+                            selectedPiece = null;
+                        }
+}
+                }
             }
         }
     }
-
 }

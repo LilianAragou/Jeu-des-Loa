@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Pion_Esprit_0: -953063107715882726
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

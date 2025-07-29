@@ -10,12 +10,11 @@ public class Tile : MonoBehaviour
     private Color defaultColor;
 
     void Awake()
-{
-    spriteRenderer = GetComponent<SpriteRenderer>();
-    defaultColor = new Color(1, 1, 1, 0f); // blanc totalement transparent
-    spriteRenderer.color = defaultColor;
-}
-
+    {
+        defaultColor = new Color(1, 1, 1, 0f); // blanc totalement transparent par défaut
+        spriteRenderer.color = defaultColor;
+        
+    }
 
     public void SetOccupant(GameObject occupant)
     {
@@ -30,7 +29,7 @@ public class Tile : MonoBehaviour
 {
     if (spriteRenderer != null)
     {
-        color.a = 0.25f; // opacité partielle pour la surbrillance
+        color.a = 0.5f; // opacité partielle pour la surbrillance
         spriteRenderer.color = color;
     }
 }
