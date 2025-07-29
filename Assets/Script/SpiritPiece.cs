@@ -3,21 +3,45 @@ using UnityEngine;
 
 public class SpiritPiece : Piece
 {
+    // Déplacements orthogonaux avec prise en compte du bonus temporaire
     public override List<Vector2Int> GetAvailableMoves(BoardManager board)
     {
-        List<Vector2Int> moves = new();
-        Vector2Int[] directions = {
-            new(1, 0), new(-1, 0),  // Droite, Gauche
-            new(0, 1), new(0, -1)   // Haut, Bas
+
+        
+        List<Vector2Int> moves = new List<Vector2Int>();
+        int range = GetEffectiveRange(1); // portée de base = 1
+        Debug.Log($"{name}: GetAvailableMoves → effective range = {range}");
+
+
+        Vector2Int[] directions = new Vector2Int[]
+        {
+            Vector2Int.up,
+            Vector2Int.down,
+            Vector2Int.left,
+            Vector2Int.right
         };
 
         foreach (var dir in directions)
         {
-            Vector2Int target = currentGridPos + dir;
-            Tile tile = board.GetTileAt(target);
+            for (int dist = 1; dist <= range; dist++)
+            {
+                Vector2Int targetPos = currentGridPos + dir * dist;
+                Tile tile = board.GetTileAt(targetPos);
+                if (tile == null)
+                    break; // hors plateau
 
-            if (tile != null && !tile.isOccupied)
-                moves.Add(target);
+                if (!tile.isOccupied)
+                {
+                    moves.Add(targetPos);
+                }
+                else
+                {
+                    Piece otherPiece = tile.currentOccupant?.GetComponent<Piece>();
+                    if (otherPiece != null && IsEnemy(otherPiece))
+                        moves.Add(targetPos); // Capture possible
+                    break; // on s'arrête après rencontre
+                }
+            }
         }
 
         return moves;
