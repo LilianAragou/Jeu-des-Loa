@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7940558681065076547}
   - component: {fileID: 7717663819030407509}
   - component: {fileID: 2799825470722474997}
-  - component: {fileID: 2126505603553368378}
+  - component: {fileID: -792366198553075939}
   m_Layer: 0
   m_Name: Red_Mask
   m_TagString: Untagged
@@ -150,7 +150,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentGridPos: {x: 0, y: 0}
   isRed: 0
---- !u!114 &2126505603553368378
+--- !u!114 &-792366198553075939
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

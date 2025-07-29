@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6471801860342543148}
   - component: {fileID: 6195345572099009945}
   - component: {fileID: 4175236213741528437}
-  - component: {fileID: 2741567513327577041}
+  - component: {fileID: 8124185196478407596}
   m_Layer: 0
   m_Name: Blue_Mask
   m_TagString: Untagged
@@ -135,7 +135,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 8.83, y: 10.19}
   m_EdgeRadius: 0
---- !u!114 &2741567513327577041
+--- !u!114 &8124185196478407596
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -144,7 +144,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 9201586079574879467}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ad77a1da4f68b94eb82f72599b37336, type: 3}
+  m_Script: {fileID: 11500000, guid: 3b7ac32e997db4041829d52f7e6aa409, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   currentGridPos: {x: 0, y: 0}
+  isRed: 0
