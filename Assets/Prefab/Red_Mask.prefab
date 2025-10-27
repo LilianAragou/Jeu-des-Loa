@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 7878535844891877362}
   - component: {fileID: 7940558681065076547}
   - component: {fileID: 7717663819030407509}
-  - component: {fileID: 5370862033586036247}
+  - component: {fileID: 2799825470722474997}
+  - component: {fileID: 2126505603553368378}
   m_Layer: 0
   m_Name: Red_Mask
   m_TagString: Untagged
@@ -135,7 +136,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 8.83, y: 10.19}
   m_EdgeRadius: 0
---- !u!114 &5370862033586036247
+--- !u!114 &2799825470722474997
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -144,7 +145,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 1910810297372126815}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ad77a1da4f68b94eb82f72599b37336, type: 3}
+  m_Script: {fileID: 11500000, guid: 3b7ac32e997db4041829d52f7e6aa409, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   currentGridPos: {x: 0, y: 0}
+  isRed: 0
+--- !u!114 &2126505603553368378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1910810297372126815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e44c078f5c9b46419d18387c2a70cb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
